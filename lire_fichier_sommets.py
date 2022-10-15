@@ -1,11 +1,13 @@
-
-lst_f = []
-with open("sommets.txt", "r") as filin :
-    for ligne in filin:
+def fichier_sommet(nom_fichier):
+    lst_f = []
+    # with open(nom_fichier, "r") as filin :
+    for ligne in nom_fichier:
         lst = ligne.split(";")
-        dico = {"numero_sommet" : int(lst[0]), "nom_sommet" : lst[1], "ligne" : int(lst[2]), "terminus" : lst[3], "branchement" : int(lst[4])}
+        dico = {"numero_sommet" : int(lst[0]), "nom_sommet" : lst[1], "ligne" : lst[2], "terminus" : lst[3], "branchement" : int(lst[4])}
         lst_f.append(dico)
+    return lst_f
 
-print(lst_f)
-filin.close()
 
+f = open("sommets.txt", 'r')
+print(fichier_sommet(f))
+f.close()
